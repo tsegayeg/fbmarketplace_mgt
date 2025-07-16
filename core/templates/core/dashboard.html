@@ -1,0 +1,16 @@
+<canvas id="postsChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var ctx = document.getElementById('postsChart').getContext('2d');
+  var postsChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: {{ dates | safe }},
+          datasets: [{
+              label: 'Posts per Day',
+              data: {{ post_counts | safe }},
+              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          }]
+      }
+  });
+</script>
